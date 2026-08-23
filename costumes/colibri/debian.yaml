@@ -3,7 +3,7 @@
 ---
 name: colibri
 description: >-
-  desktop xfce4 plus all that I need to develop eggs, firmwares
+  desktop xfce4 plus all that I need to develop eggs
 author: artisan
 release: 0.9.1
 distributions:
@@ -61,21 +61,21 @@ sequence:
     - plymouth-themes
 
     # Added gio command
-    - libglib2.0-bin
-    - gnome-disk-utility
+    #- libglib2.0-bin
+    #- gnome-disk-utility
     # pacman packages
-    - ruby-deb
-    - libarchive-too
+    #- ruby-deb
+    #- libarchive-too
 
     # wifi
-    - firmware-atheros
-    - firmware-brcm80211
-    - firmware-iwlwifi
-    - firmware-libertas
-    - firmware-misc-nonfree
-    - firmware-realtek
-    - wireless-tools
-    - wpasupplicant
+    #- firmware-atheros
+    #- firmware-brcm80211
+    #- firmware-iwlwifi
+    #- firmware-libertas
+    #- firmware-misc-nonfree
+    #- firmware-realtek
+    #- wireless-tools
+    #- wpasupplicant
 
   accessories:
     - base
