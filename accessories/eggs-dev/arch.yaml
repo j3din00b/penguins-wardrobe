@@ -1,7 +1,7 @@
 # eggs-dev
 ---
 name: eggs-dev
-description: 'add repositories: nodesource, code, install: nodejs, code'
+description: 'add repositories: nodesource, code, install: nodejs, code, antigravity-cli'
 author: artisan
 distributions:
   - rolling
@@ -23,4 +23,5 @@ finalize:
     - npm i pnpm -g
     # sudo -u ${SUDO_USER} pnpm install-completion bash
     - ../../scripts/tools-jq.sh
+    - curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir /usr/local/bin
     

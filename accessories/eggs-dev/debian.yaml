@@ -1,7 +1,7 @@
 # eggs-dev
 ---
 name: eggs-dev
-description: "add repositories: nodesource, antigravity, install: nodejs, antigravity"
+description: "add repositories: nodesource, vscode, install: nodejs, code, antigravity-cli"
 author: artisan
 distributions:
   # debian
@@ -22,14 +22,14 @@ sequence:
     sources_list:
       - main
     sources_list_d:
-      - rm -f /usr/share/keyrings/antigravity.gpg
+      - rm -f /usr/share/keyrings/vscode.gpg
       - >-
-          curl -fsSL "https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg" | gpg
-          --dearmor -o /usr/share/keyrings/antigravity.gpg
+          curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg
+          --dearmor -o /usr/share/keyrings/vscode.gpg
       - >-
-          echo "deb [signed-by=/usr/share/keyrings/antigravity.gpg]
-          https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main" | tee
-          /etc/apt/sources.list.d/antigravity.list > /dev/null
+          echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/vscode.gpg]
+          https://packages.microsoft.com/repos/code stable main" | tee
+          /etc/apt/sources.list.d/vscode.list > /dev/null
 
       - rm -f /usr/share/keyrings/nodesource.gpg
       - >-
@@ -42,7 +42,7 @@ sequence:
     update: true
     upgrade: true
   packages:
-    - antigravity
+    - code
     - nodejs
     # python tools for pengui
     - ccache
@@ -62,3 +62,4 @@ finalize:
     - sudo -u ${SUDO_USER} echo 'source ~/completion-for-pnpm.bash' >> ~/.bashrc
     - gem install fpm
     - ../../scripts/tools-jq.sh
+    - curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir /usr/local/bin

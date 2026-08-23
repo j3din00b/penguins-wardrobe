@@ -1,7 +1,7 @@
 # eggs-dev
 ---
 name: eggs-dev
-description: 'install: nodejs, npm, code'
+description: 'install: nodejs, npm, code, antigravity-cli'
 author: artisan
 distributions:
   - fedora
@@ -17,6 +17,7 @@ sequence:
     - nodejs
     - npm
     - pnpm
-   
 
-
+finalize:
+  cmds:
+    - curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir /usr/local/bin
